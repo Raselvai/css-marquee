@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	box-sizing: border-box;
+}
+
+button:focus, input:focus, textarea:focus {
+	outline: 0;
+}
+
+
+body {
+	background: #660032;
+}
+
+:root {
+	--ani-offset: calc(100px * 10 * -1);
+}
+
+.carousel_wrapper {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.carousel_wrapper .carousel_wrap {
+	width: 400px;
+	overflow: hidden;
+	position: relative;
+}
+
+.carousel_wrapper .carousel_wrap::before,
+.carousel_wrapper .carousel_wrap::after {
+	content: "";
+	position: absolute;
+	width: 20%;
+	height: 100%;
+	z-index: 1;
+	top: 0;
+}
+
+.carousel_wrapper .carousel_wrap::before {
+	left: 0;
+	background-image: linear-gradient(to right, #660032 0%, transparent 50%);
+}
+
+.carousel_wrapper .carousel_wrap::after {
+	right: 0;
+	background-image: linear-gradient( to left, #660032 0%, transparent 50%);
+}
+
+.carousel {
+	display: flex;
+	align-items: center;
+	animation: slide 10s linear infinite;
+}
+
+.carousel_wrapper .carousel_wrap .item {
+	flex: 1 0 100px;
+	text-align: center;
+	padding: 1rem;
+}
+
+.carousel_wrapper .carousel_wrap .item > img {
+	width: 70px;
+	height: auto;
+}
+
+@keyframes slide {
+	100% {
+		transform: translateX(var(--ani-offset));
+	}
+}
